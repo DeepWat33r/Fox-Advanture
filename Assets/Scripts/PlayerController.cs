@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public int health = 5;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int GemCollected;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        GemCollected = 0;
     }
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.gameObject.CompareTag(MushroomTag))
+    //     {
+    //         ColorState.ChangeColor(this);
+    //     }
+    // }
+    // public void ChangeSpriteRendererColor(Color color)
+    // {
+    //     _spriteRenderer.color = color;
+    // }
 }
