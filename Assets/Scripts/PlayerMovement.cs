@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius;
     [SerializeField] private LayerMask groundLayer;
-    //[SerializeField] private Animator animator;
+    [SerializeField] private Animator animator;
 
     private Rigidbody2D _rb;
     private Vector2 _movingForce;
@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         _movingForce.x = Input.GetAxis("Horizontal") * speed;
-        //animator.SetFloat("Speed", Mathf.Abs(_movingForce.x));
+        animator.SetFloat("Speed", Mathf.Abs(_movingForce.x));
         _isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         if (_isTouchingGround && Input.GetKeyDown(KeyCode.Space))
         {
