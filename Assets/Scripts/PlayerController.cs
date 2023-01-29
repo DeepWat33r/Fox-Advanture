@@ -4,21 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public int GemCollected;
+    public int NumbersOfGems { get; private set; }
 
-    private void Awake()
+    public void GemCollected()
     {
-        GemCollected = 0;
+        NumbersOfGems++ ;
     }
-    // private void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if (other.gameObject.CompareTag(MushroomTag))
-    //     {
-    //         ColorState.ChangeColor(this);
-    //     }
-    // }
-    // public void ChangeSpriteRendererColor(Color color)
-    // {
-    //     _spriteRenderer.color = color;
-    // }
 }
