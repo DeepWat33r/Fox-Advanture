@@ -16,6 +16,7 @@ public class CharacterController2D : MonoBehaviour
 	private bool _grounded;            // Whether or not the player is grounded.
 	private const float CeilingRadius = .25f; // Radius of the overlap circle to determine if the player can stand up
 	private Rigidbody2D _rb;
+	private bool _facingRight = true; 
 	private Vector3 _velocity = Vector3.zero;
 	
 	[Header("Events")]
@@ -36,8 +37,6 @@ public class CharacterController2D : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		if (!Mathf.Approximately(_rb.velocity.x, 0))
-			transform.localScale = new Vector3(Mathf.Sign(_rb.velocity.x) * 6, 6, 1);
 		var wasGrounded = _grounded;
 		_grounded = false;
 
@@ -88,6 +87,24 @@ public class CharacterController2D : MonoBehaviour
 			_grounded = false;
 			_rb.AddForce(new Vector2(0f, jumpForce));
 		}
+		if (move > 0 && !_facingRight)
+		{
+			Flip();
+		}
+		else if (move < 0 && _facingRight)
+		{
+			Flip();
+		}
+	}
+	private void Flip()
+	{
+		// Switch the way the player is labelled as facing.
+		_facingRight = !_facingRight;
+
+		// Multiply the player's x local scale by -1.
+		Vector3 theScale = transform.localScale;
+		theScale.x *= -1;
+		transform.localScale = theScale;
 	}
 
 }
