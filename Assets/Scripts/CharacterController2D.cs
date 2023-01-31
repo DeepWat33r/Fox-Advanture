@@ -36,6 +36,8 @@ public class CharacterController2D : MonoBehaviour
 
 	private void FixedUpdate()
 	{
+		if (!Mathf.Approximately(_rb.velocity.x, 0))
+			transform.localScale = new Vector3(Mathf.Sign(_rb.velocity.x) * 6, 6, 1);
 		var wasGrounded = _grounded;
 		_grounded = false;
 
@@ -79,8 +81,6 @@ public class CharacterController2D : MonoBehaviour
 		Vector3 targetVelocity = new Vector2(move * 10f, _rb.velocity.y);
 		// And then smoothing it out and applying it to the character
 		_rb.velocity = Vector3.SmoothDamp(_rb.velocity, targetVelocity, ref _velocity, movementSmoothing);
-		if (!Mathf.Approximately(_rb.velocity.x, 0))
-			transform.localScale = new Vector3(Mathf.Sign(_rb.velocity.x) * 6, 6, 1);
 		// If the player should jump...
 		if (_grounded && jump)
 		{
