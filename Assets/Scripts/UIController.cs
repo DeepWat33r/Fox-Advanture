@@ -2,25 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    private TextMeshProUGUI GemScore;
+    [SerializeField] private TextMeshProUGUI gemScore;
+    [SerializeField] public Slider health;
 
     // Start is called before the first frame update
     void Start()
     {
-        GemScore = GetComponent<TextMeshProUGUI>();
+        
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateGemScore(PlayerController playerController)
     {
-
+        gemScore.text = playerController.NumbersOfGems.ToString();
     }
-
-    public void UpdateGemScore(PlayerController _playerController)
+    public void UpdateHealth(PlayerController playerController)
     {
-        GemScore.text = _playerController.NumbersOfGems.ToString();
+        health.value = playerController.Health;
     }
 }

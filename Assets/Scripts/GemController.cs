@@ -35,7 +35,6 @@ public class GemController : MonoBehaviour
         {
             _playerController.GemCollected();
             gameObject.SetActive(false);
-            Debug.Log("Total Gems collected - " + _playerController.NumbersOfGems);
         }
     }
 }

@@ -8,12 +8,22 @@ using UnityEngine.Serialization;
 public class PlayerController : MonoBehaviour
 {
     public int NumbersOfGems { get; private set; }
+    public int Health { get; private set; }
+
 
     public UnityEvent<PlayerController> onGemScored;
+    public UnityEvent<PlayerController> onHealthDecreased;
+
 
     public void GemCollected()
     {
-        NumbersOfGems++ ;
+        NumbersOfGems++;
         onGemScored.Invoke(this);
+    }
+
+    public void HealthDecreased(int damage)
+    {
+        Health-=damage;
+        onHealthDecreased.Invoke(this);
     }
 }
