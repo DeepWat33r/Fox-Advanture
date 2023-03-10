@@ -9,12 +9,6 @@ public class UIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gemScore;
     [SerializeField] public Slider health;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void UpdateGemScore(PlayerController playerController)
     {
         gemScore.text = playerController.NumbersOfGems.ToString();
