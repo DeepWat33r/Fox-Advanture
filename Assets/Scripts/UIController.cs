@@ -7,14 +7,14 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI gemScore;
-    [SerializeField] public Slider health;
+    // [SerializeField] public Slider health;
 
     public void UpdateGemScore(PlayerController playerController)
     {
         gemScore.text = playerController.NumbersOfGems.ToString();
     }
-    public void UpdateHealth(PlayerController playerController)
-    {
-        health.value = playerController.Health;
-    }
+    // public void UpdateHealth(PlayerController playerController)
+    // {
+    //     health.value = playerController.Health;
+    // }
 }

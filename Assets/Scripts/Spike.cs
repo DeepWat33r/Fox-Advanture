@@ -12,7 +12,7 @@ public class Spike : MonoBehaviour
         _playerController = other.GetComponent<PlayerController>();
         if (_playerController != null)
         {
-            _playerController.HealthDecreased(1);
+             _playerController.TakeDamage(1);
         }
     }
 }
