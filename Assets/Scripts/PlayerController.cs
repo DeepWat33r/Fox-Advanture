@@ -9,17 +9,19 @@ using UnityEngine.Serialization;
 public class PlayerController : MonoBehaviour
 {
     public int NumbersOfGems { get; private set; }
-    // public int Health { get; private set; }
-    public int MaxHealth = 5;
-    public int CurrentHealth;
-    public HealthBar HealthBar;
+    public int maxHealth = 5;
+    public int currentHealth;
+    public HealthBar healthBar;
+    public float repelForce = 10f;
+    private Rigidbody2D rb;
 
     public UnityEvent<PlayerController> onGemScored;
-    //public UnityEvent<PlayerController> onHealthDecreased;
-    void Start()
+
+    private void Start()
     {
-        CurrentHealth = MaxHealth;
-        HealthBar.SetMaxHealth(MaxHealth);
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+        rb = transform.parent.GetComponent<Rigidbody2D>(); // get reference to Rigidbody2D component from parent object
     }
 
     public void GemCollected()
@@ -30,12 +32,14 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        CurrentHealth -= damage;
-        HealthBar.SetHealth(CurrentHealth);
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+
+        if (rb != null)
+        {
+            Vector2 repelDirection = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            repelDirection.Normalize();
+            rb.AddForce(repelDirection * repelForce, ForceMode2D.Impulse);
+        }
     }
-    // public void HealthDecreased(int damage)
-    // {
-    //     Health-=damage;
-    //     onHealthDecreased.Invoke(this);
-    // }
 }

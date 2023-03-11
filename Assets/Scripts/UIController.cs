@@ -13,8 +13,4 @@ public class UIController : MonoBehaviour
     {
         gemScore.text = playerController.NumbersOfGems.ToString();
     }
-    // public void UpdateHealth(PlayerController playerController)
-    // {
-    //     health.value = playerController.Health;
-    // }
 }
