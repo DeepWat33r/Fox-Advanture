@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     public HealthBar healthBar;
     public float repelForce = 10f;
     private Rigidbody2D rb;
+    public float flashDuration = 2.0f; // duration of flashing in seconds
+    public float flashSpeed = 10.0f; // speed of flashing
+
 
     public UnityEvent<PlayerController> onGemScored;
 
@@ -29,17 +32,51 @@ public class PlayerController : MonoBehaviour
         NumbersOfGems++;
         onGemScored.Invoke(this);
     }
+    
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Vector2? repelDirection)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
 
-        if (rb != null)
+        if (currentHealth <= 0)
         {
-            Vector2 repelDirection = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            repelDirection.Normalize();
-            rb.AddForce(repelDirection * repelForce, ForceMode2D.Impulse);
+            // Handle player death here
+            Debug.Log("Player has died!");
+        }
+
+        if (repelDirection != null)
+        {
+            Rigidbody2D rb = transform.parent.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.AddForce(repelDirection.Value.normalized * repelForce, ForceMode2D.Impulse);
+            }
+        }
+
+        // make the parent object flash
+        StartCoroutine(FlashObject());
+    }
+
+    private IEnumerator FlashObject()
+    {
+        Renderer renderer = transform.parent.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            // flash the object by changing its transparency
+            float originalAlpha = 1;
+            float targetAlpha = 0.5f; // set the target alpha value here
+            float startTime = Time.time;
+            while (Time.time < startTime + flashDuration)
+            {
+                float t = (Time.time - startTime) * flashSpeed;
+                float alpha = Mathf.Lerp(originalAlpha, targetAlpha, Mathf.PingPong(t, 1));
+                renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, alpha);
+                yield return null;
+            }
+            // reset the transparency to its original value
+            renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, originalAlpha);
         }
     }
+
 }
