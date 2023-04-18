@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     public float flashDuration = 2.0f; // duration of flashing in seconds
     public float flashSpeed = 10.0f; // speed of flashing
-
+    public bool playerFlash = false;
 
     public UnityEvent<PlayerController> onGemScored;
 
@@ -69,11 +69,14 @@ public class PlayerController : MonoBehaviour
             float startTime = Time.time;
             while (Time.time < startTime + flashDuration)
             {
+                playerFlash = true;
                 float t = (Time.time - startTime) * flashSpeed;
                 float alpha = Mathf.Lerp(originalAlpha, targetAlpha, Mathf.PingPong(t, 1));
                 renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, alpha);
                 yield return null;
             }
+
+            playerFlash = false;
             // reset the transparency to its original value
             renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, originalAlpha);
         }
