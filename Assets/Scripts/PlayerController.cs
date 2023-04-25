@@ -8,12 +8,14 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]private GameManager2D gameManager2D;
     public int NumbersOfGems { get; private set; }
     public int maxHealth = 5;
     public int currentHealth;
     public HealthBar healthBar;
     public float repelForce = 10f;
     private Rigidbody2D rb;
+    
     public float flashDuration = 2.0f; // duration of flashing in seconds
     public float flashSpeed = 10.0f; // speed of flashing
     public bool playerFlash = false;
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
         {
             // Handle player death here
             Debug.Log("Player has died!");
+            gameManager2D.GameEnd();
         }
 
         if (repelDirection != null)

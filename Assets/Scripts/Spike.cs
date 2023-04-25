@@ -12,7 +12,6 @@ public class Spike : MonoBehaviour
         _playerController = other.GetComponent<PlayerController>();
         if (_playerController != null)
         {
-            Debug.Log("Collide!!!");
             if(!_playerController.playerFlash)
                 _playerController.TakeDamage(damageAmount, (_playerController.transform.position - transform.position));
         }
