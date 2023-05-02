@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using SavingScripts;
 using UnityEngine;
 
 public class GameManager2D : MonoBehaviour
@@ -18,7 +19,6 @@ public class GameManager2D : MonoBehaviour
     public void SavePlayer()
     {
         SaveSystem.SavePlayerData(playerController, playerMovement2D);
- 
     }
 
     public void LoadPlayer()
