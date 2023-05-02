@@ -9,12 +9,12 @@ using UnityEngine.Serialization;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]private GameManager2D gameManager2D;
-    public int NumbersOfGems { get; private set; }
+    public int NumbersOfGems { get;  set; }
     public int maxHealth = 5;
     public int currentHealth;
     public HealthBar healthBar;
     public float repelForce = 10f;
-    private Rigidbody2D rb;
+    private Rigidbody2D _rb;
     
     public float flashDuration = 2.0f; // duration of flashing in seconds
     public float flashSpeed = 10.0f; // speed of flashing
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        rb = transform.parent.GetComponent<Rigidbody2D>(); // get reference to Rigidbody2D component from parent object
+        _rb = transform.parent.GetComponent<Rigidbody2D>();
     }
 
     public void GemCollected()
