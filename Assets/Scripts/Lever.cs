@@ -15,10 +15,12 @@ public class Lever : MonoBehaviour
     }
     public GameObject objectToMove;
     public Directions directions = Directions.Up;
+    public Animator animator;
     public float moveDistance = 1f;
     public float moveSpeed = 1f;
     private bool _isPlayer;
     private bool _isMoving = false;
+    private bool _isActive = false;
     private Vector3 _defaultPosition;
 
     public void Start()
@@ -31,6 +33,9 @@ public class Lever : MonoBehaviour
         if (_isPlayer && !_isMoving && Input.GetKeyDown(KeyCode.E))
         {
             _isMoving = true;
+            if (!_isActive) animator.SetBool("IsActive", true);
+            else animator.SetBool("IsActive", false);
+            _isActive = !_isActive;
         }
 
         if (_isMoving)
@@ -43,7 +48,6 @@ public class Lever : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             _isPlayer = true;
-            Debug.Log(_isMoving);
         }
     }
     
@@ -52,7 +56,6 @@ public class Lever : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             _isPlayer = false;
-            Debug.Log("Player Out!");
         }
     }
 
