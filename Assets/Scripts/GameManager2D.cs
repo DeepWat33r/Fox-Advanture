@@ -13,6 +13,7 @@ public class GameManager2D : MonoBehaviour
     {
         gameEndUI.SetActive(true);
         Time.timeScale = 0f;
+        Destroy(playerMovement2D.gameObject);
         Debug.Log("GameEnd code");
     }
 
