@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Lever : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Lever : MonoBehaviour
     public GameObject objectToMove;
     public Directions directions = Directions.Up;
     public Animator animator;
+    public Canvas canvas;
+    
     public float moveDistance = 1f;
     public float moveSpeed = 1f;
     private bool _isPlayer;
@@ -45,6 +48,7 @@ public class Lever : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D other)
     {
+        canvas.gameObject.SetActive(true);
         if (other.gameObject.CompareTag("Player"))
         {
             _isPlayer = true;
@@ -53,6 +57,7 @@ public class Lever : MonoBehaviour
     
     private void OnTriggerExit2D(Collider2D other)
     {
+        canvas.gameObject.SetActive(false);
         if (other.gameObject.CompareTag("Player"))
         {
             _isPlayer = false;
