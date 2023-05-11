@@ -11,19 +11,20 @@ public class LevelStarsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //SceneManager.LoadScene(levelNumber, LoadSceneMode.Additive);
-        _numberOfStars = PlayerPrefs.GetInt("Level_1");
+        _numberOfStars = PlayerPrefs.GetInt(GetSceneNameByBuildIndex(levelNumber));
         for (int i = 0; i < _numberOfStars; i++)
-        {
             stars[i].SetActive(true);
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(_numberOfStars);
-        //Debug.Log(SceneManager.GetSceneByBuildIndex(1).name);
-        //Debug.Log(SceneManager.GetSceneByBuildIndex(levelNumber).name);
+        
+    }
+    private static string GetSceneNameByBuildIndex(int buildIndex)
+    {
+        string scenePath = SceneUtility.GetScenePathByBuildIndex(buildIndex);
+        string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+        return sceneName;
     }
 }
