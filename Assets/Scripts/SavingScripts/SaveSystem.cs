@@ -6,10 +6,10 @@ namespace SavingScripts
 {
     public static class SaveSystem 
     {
-        public static void SavePlayerData(PlayerController playerController, PlayerMovement2D playerMovement2D)
+        public static void SavePlayerData(PlayerController playerController, PlayerMovement2D playerMovement2D, string levelName)
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            string path = Application.persistentDataPath + "/player.bin";
+            string path = Application.persistentDataPath + "/player_" + levelName + ".bin";
             FileStream stream = new FileStream(path, FileMode.Create);
 
             PlayerData data = new PlayerData(playerController, playerMovement2D);
@@ -19,9 +19,9 @@ namespace SavingScripts
 
         }
 
-        public static PlayerData LoadPlayer()
+        public static PlayerData LoadPlayer(string levelName)
         {
-            string path = Application.persistentDataPath + "/player.bin";
+            string path = Application.persistentDataPath + "/player_" + levelName + ".bin";
             if (File.Exists(path))
             {
                 BinaryFormatter formatter = new BinaryFormatter();

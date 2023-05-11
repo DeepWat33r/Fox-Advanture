@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using SavingScripts;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager2D : MonoBehaviour
 {
@@ -19,12 +20,12 @@ public class GameManager2D : MonoBehaviour
 
     public void SavePlayer()
     {
-        SaveSystem.SavePlayerData(playerController, playerMovement2D);
+        SaveSystem.SavePlayerData(playerController, playerMovement2D, SceneName.GetSceneNameByBuildIndex(SceneManager.GetActiveScene().buildIndex));
     }
 
     public void LoadPlayer()
     {
-        PlayerData playerData = SaveSystem.LoadPlayer();
+        PlayerData playerData = SaveSystem.LoadPlayer(SceneName.GetSceneNameByBuildIndex(SceneManager.GetActiveScene().buildIndex));
 
         playerController.currentHealth = playerData.currentHealth;
         playerController.NumbersOfGems = playerData.gemsCollected;
