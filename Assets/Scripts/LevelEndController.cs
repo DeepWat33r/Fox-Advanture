@@ -30,7 +30,6 @@ public class LevelEndController : MonoBehaviour
                 PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, GetStars());
             }
         }
-        Debug.Log(PlayerPrefs.GetInt(SceneManager.GetActiveScene().name));
     }
 
     private void OnTriggerStay2D(Collider2D other)

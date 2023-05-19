@@ -189,7 +189,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &350302627
 GameObject:
@@ -1109,7 +1109,7 @@ RectTransform:
   - {fileID: 600325223}
   - {fileID: 686205465}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2726,7 +2726,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1831302421
 GameObject:
@@ -3378,6 +3378,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2050564176}
   m_CullTransparentMesh: 1
+--- !u!1001 &2056059661
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4327657134778544661, guid: cbe178257e2cbed48a39d793b1cd1924, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327657134778544661, guid: cbe178257e2cbed48a39d793b1cd1924, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.733826
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327657134778544661, guid: cbe178257e2cbed48a39d793b1cd1924, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5647888
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327657134778544661, guid: cbe178257e2cbed48a39d793b1cd1924, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17.962616
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327657134778544661, guid: cbe178257e2cbed48a39d793b1cd1924, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327657134778544661, guid: cbe178257e2cbed48a39d793b1cd1924, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327657134778544661, guid: cbe178257e2cbed48a39d793b1cd1924, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327657134778544661, guid: cbe178257e2cbed48a39d793b1cd1924, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327657134778544661, guid: cbe178257e2cbed48a39d793b1cd1924, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327657134778544661, guid: cbe178257e2cbed48a39d793b1cd1924, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327657134778544661, guid: cbe178257e2cbed48a39d793b1cd1924, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327657134778544666, guid: cbe178257e2cbed48a39d793b1cd1924, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cbe178257e2cbed48a39d793b1cd1924, type: 3}
 --- !u!1 &2071415761 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4451038109954445349, guid: 54ac77a1b2f442d449357a67d6c7e6bf, type: 3}
@@ -3497,6 +3554,10 @@ PrefabInstance:
     - target: {fileID: 4451038109954445350, guid: 54ac77a1b2f442d449357a67d6c7e6bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451038109954445351, guid: 54ac77a1b2f442d449357a67d6c7e6bf, type: 3}
+      propertyPath: soundName
+      value: UpRight
       objectReference: {fileID: 0}
     - target: {fileID: 4451038110078409814, guid: 54ac77a1b2f442d449357a67d6c7e6bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target

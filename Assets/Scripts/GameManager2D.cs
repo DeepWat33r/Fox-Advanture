@@ -1,15 +1,24 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using SavingScripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager2D : MonoBehaviour
 {
+    public string soundName;
+    
     [SerializeField]private PlayerController playerController;
     [SerializeField]private PlayerMovement2D playerMovement2D;
     public GameObject gameEndUI;
+
+    public void Start()
+    {
+        FindObjectOfType<AudioManager>().PlaySound(soundName);
+    }
+
     public void GameEnd()
     {
         gameEndUI.SetActive(true);
