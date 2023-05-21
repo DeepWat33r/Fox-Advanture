@@ -29,10 +29,6 @@ public class SettingMenu : MonoBehaviour
         
         currentVolume = volumeSlider.value;
         currentFullscreen = fullscreenToggle.isOn;
-    }
-
-    public void Start()
-    {
         LoadSettings();
     }
 

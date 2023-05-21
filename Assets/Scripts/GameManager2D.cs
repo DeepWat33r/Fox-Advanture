@@ -17,6 +17,10 @@ public class GameManager2D : MonoBehaviour
     public void Start()
     {
         FindObjectOfType<AudioManager>().PlaySound(soundName);
+        if (playerController != null && playerMovement2D != null)
+        {
+            LoadPlayer();
+        }
     }
 
     public void GameEnd()
@@ -36,14 +40,16 @@ public class GameManager2D : MonoBehaviour
     {
         PlayerData playerData = SaveSystem.LoadPlayer(SceneName.GetSceneNameByBuildIndex(SceneManager.GetActiveScene().buildIndex));
 
-        playerController.currentHealth = playerData.currentHealth;
-        playerController.NumbersOfGems = playerData.gemsCollected;
+        if (playerData != null)
+        {
+            playerController.currentHealth = playerData.currentHealth;
+            playerController.NumbersOfGems = playerData.gemsCollected;
 
-        Vector3 position;
-        position.x = playerData.position[0];
-        position.y = playerData.position[1];
-        position.z = playerData.position[2];
-        playerMovement2D.transform.position = position;
-
+            Vector3 position;
+            position.x = playerData.position[0];
+            position.y = playerData.position[1];
+            position.z = playerData.position[2];
+            playerMovement2D.transform.position = position;
+        }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SavingScripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -29,6 +30,16 @@ public class LevelEndController : MonoBehaviour
             {
                 PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, GetStars());
             }
+            if(SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.GetActiveScene().buildIndex)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+            // Otherwise, load the first scene
+            else
+            {
+                SceneManager.LoadScene(0);
+            }
+            SaveSystem.ResetPlayerData(SceneManager.GetActiveScene().name);
         }
     }
 

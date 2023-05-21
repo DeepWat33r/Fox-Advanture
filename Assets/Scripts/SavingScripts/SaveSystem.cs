@@ -50,7 +50,18 @@ namespace SavingScripts
             stream.Close();
 
         }
-
+        public static void ResetPlayerData(string levelName)
+        {
+            string path = Application.persistentDataPath + "/player_" + levelName + ".bin";
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+            else
+            {
+                Debug.Log("Save file not found " + path);
+            }
+        }
         public static PlayerSettings LoadPlayerSettings()
         {
             string path = Application.persistentDataPath + "/settings.bin";
