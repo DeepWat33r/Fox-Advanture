@@ -30,7 +30,7 @@ public class LevelEndController : MonoBehaviour
             {
                 PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, GetStars());
             }
-            if(SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.GetActiveScene().buildIndex)
+            if(SceneManager.GetActiveScene().buildIndex < SceneManager.GetActiveScene().buildIndex + 1)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
