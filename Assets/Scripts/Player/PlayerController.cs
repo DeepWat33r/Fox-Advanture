@@ -59,6 +59,18 @@ namespace Player
             // make the parent object flash
             StartCoroutine(FlashObject());
         }
+        public void TakeDamage(int damage)
+        {
+            currentHealth -= damage;
+            healthBar.SetHealth(currentHealth);
+
+            if (currentHealth <= 0)
+            {
+                // Handle player death here
+                Debug.Log("Player has died!");
+                gameManager2D.GameEnd();
+            }
+        }
         public void IncreaseHealth(int amount)
         {
             if(currentHealth < maxHealth)

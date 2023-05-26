@@ -7,7 +7,7 @@ namespace Items
     {
         public int healthIncrease = 1;
 
-        void OnTriggerEnter2D(Collider2D other)
+        public void OnTriggerEnter2D(Collider2D other)
         {
             PlayerController playerHealth = other.GetComponent<PlayerController>();
 
