@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    public string playerTag = "Player"; // Replace with your player's tag
+    public string playerTag = "Player"; 
     public GameManager2D gameManager2D;
     private void OnTriggerEnter2D(Collider2D other) {
         // Check if the object that entered the trigger is the player

@@ -1,3 +1,5 @@
+using Player;
+
 namespace SavingScripts
 {
     [System.Serializable]

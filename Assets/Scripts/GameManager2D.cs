@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Audio;
+using Player;
 using SavingScripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
