@@ -298,7 +298,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 62194337497880553}
-        m_TargetAssemblyTypeName: PlayerMovement2D, Assembly-CSharp
+        m_TargetAssemblyTypeName: Player.PlayerMovement2D, Assembly-CSharp
         m_MethodName: OnCrouching
         m_Mode: 0
         m_Arguments:
